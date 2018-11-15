@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block title %} Restaurant | {{block.super}} {% endblock %}
+
+{% block nav %}
+<a href="{% url 'restaurants:create' %}"> Add New Restaurant</a>
+{% endblock nav %}
+
+{% block content %}
+{% if perms %}
+  {% if perms.restaurants.can_change %}
+    <b>{{user}}</b> <b>CAN</b>  update restaurants in <b>Admin</b> panel
+  {% else %}
+    <b>{{user}}</b> can <b>NOT</b> update restaurants in <b>Admin</b> panel
+  {% endif %}
+{% endif %}
+
+<h1>Restaurant list</h1>
+
+<ul>
+  {% for obj in object_list %}
+  <li>
+     <h4>
+       <!-- <a href="{% url 'restaurants:details' obj.slug %}">{{obj}}</a> -->
+       <a href="{{obj.get_absolute_url}}">{{obj}}</a>
+        <small>  {{obj.updated|timesince }} ago</small></h4>
+   </li>
+  {% endfor %}
+</ul>
+{% endblock %}

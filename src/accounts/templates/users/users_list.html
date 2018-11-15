@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>USERS Table</h2>
+<table>
+  <tr>
+    <th>UserName</th>
+    <th>Email</th>
+    <th>Is Staff</th>
+    <th>Is Super User</th>
+    <th>Action</th>
+  </tr>
+  {% for user in users %}
+  <tr>
+    <td><a href="{% url 'accounts:details' user.id %}">{{user}}</a></td>
+    <td>{{user.email}}</td>
+    <td>{{user.is_staff}}</td>
+    <td>{{user.is_superuser}}</td>
+    <td><a href="{% url 'accounts:update' user.id %}">Update</a></td>
+
+  </tr>
+  {% endfor %}
+</table>
+{% endblock content %}

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>
+  {% block title %} restaurants {% endblock title %}
+    </title>
+      {% include 'snippets/css/table.html' %}
+
+  </head>
+  <body>
+    {% if messages %}
+      {% for message in messages %}
+        <div class="alert alert-{{message.tags}}">
+            {{message}}
+        </div>
+      {% endfor %}
+    {% endif %}
+
+    {% include 'snippets/nav.html' %}<br>{% block nav %}{% endblock nav %}
+
+    <div class="content">
+      {% block content %}{% endblock %}
+
+    </div>
+  </div>
+  </body>
+</html>

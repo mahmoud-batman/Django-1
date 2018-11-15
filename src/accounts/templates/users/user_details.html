@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>{{user.username}} Detailed View</h1>
+<a href="{% url 'accounts:update' user.id %}"><button type="button" name="button">Update</button></a>
+<!-- <a href="#"><button type="button" name="button">Update</button></a> -->
+{% endblock content %}

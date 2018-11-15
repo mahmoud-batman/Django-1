@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %} {{title}} | {{block.super}} {% endblock %}
+{% block content %}
+<h1>{{title}}</h1>
+<form method="POST">
+  {% csrf_token %}
+  {{ form.as_p }}
+<button type="submit" >SAVE</button>
+</form>
+
+{% endblock %}
+<!-- <input type="text" name="name" placeholder="Name" required="this field is required">
+<input type="text" name="location" placeholder="Location">
+<input type="text" name="category" placeholder="Category">
+<button type="submit" >SAVE</button> -->
